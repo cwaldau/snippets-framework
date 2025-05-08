@@ -1,0 +1,16 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# default lang is en
+RewriteRule ^$ /?lang=en [L,QSA]
+RewriteRule ^(en|fr)/?$ /?lang=$1 [L,QSA]
+# whenever its specifically a snippet pass it through view.php
+RewriteRule ^(en|fr)/snip/(.*?)/?$ /view.php/?lang=$1&snippet=$2 [L,QSA]
+# ability to still fetch php files 1 level deep
+RewriteRule ^(en|fr)/(.*?)/(.*?)/?$ /$2/$3.php/?lang=$1 [L,QSA]
+RewriteRule ^(en|fr)/(.*?)/?$ /$2.php/?lang=$1 [L,QSA]
