@@ -1,4 +1,5 @@
 *** Framework specific instructions ***
+
 * Edit `src/auth.php` to customize username/password or comment out the include of `auth.php` if you dont want to password protect
 * Organize documentation and code snippets into sections
 * Each section can have its own `filename.md` file
@@ -8,6 +9,7 @@
 * Thats all!
 
 *** Advanced Framework instructions ***
+
 If you want to have versioning, history, rollbacks/backups, collaboration etc it is best for the `src/snippets` folder to be its own, separate git repo. Using this method you dont need to sift through framework files to find your documentation. It also allows for cleaner commit history, without framework improvements cluttering it up.
 
 * Create a repo for the Framework
