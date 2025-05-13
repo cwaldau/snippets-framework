@@ -14,13 +14,10 @@
             <?php foreach ($snippets as $snippet): ?>
 
               <?php if(isset($snippet['folder'])): ?>
-                <li><span class="opener"><?php echo $snippet['folder']; ?></span>
-                  <ul>
-                    <?php foreach ($snippet['children'] as $childSnippet): ?>
-                        <li><a href="<?php echo SITE_PATH; ?><?php echo $childSnippet['slug']; ?>"><div class="name"><?php echo $childSnippet['name']; ?></div></a></li>
-                    <?php endforeach; ?>
-                  </ul>
-                </li>
+                <li class="folder-name"><span class="opener custom"><?php echo $snippet['folder']; ?></span></li>
+                <?php foreach ($snippet['children'] as $childSnippet): ?>
+                      <li class="subfolder-item"><a href="<?php echo SITE_PATH; ?><?php echo $childSnippet['slug']; ?>"><div class="folder"><?php echo $snippet['folder']; ?> /</div><div class="name"><?php echo $childSnippet['name']; ?></div></a></li>
+                  <?php endforeach; ?>
                 <?php else: ?>
                   <li><a href="<?php echo SITE_PATH; ?><?php echo $snippet['slug']; ?>"><div class="name"><?php echo $snippet['name']; ?></div></a></li>
                 <?php endif; ?>

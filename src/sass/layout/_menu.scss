@@ -103,4 +103,30 @@
 			}
 		}
 	}
+
+	ul.list .folder-name span:hover {
+		color: #3d4449;
+		cursor: default;
+	}
+	ul.list .folder-name ~ .subfolder-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	ul.list .folder-name ~ .subfolder-item::before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		color: #9fa3a6;
+		content: "";
+		rotate: -90deg;
+	}
 }

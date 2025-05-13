@@ -206,7 +206,8 @@
 
 	// Menu.
 	var $menu = $("#menu"),
-		$menu_openers = $menu.children("ul").find(".opener");
+		$menu_openers = $menu.find("ul").find(".opener:not(.custom)"),
+		$menu_openers_custom = $menu.find("ul").find(".opener.custom");
 
 	// Openers.
 	$menu_openers.each(function () {
@@ -219,6 +220,20 @@
 			// Toggle.
 			$menu_openers.not($this).removeClass("active");
 			$this.toggleClass("active");
+
+			// Trigger resize (sidebar lock).
+			$window.triggerHandler("resize.sidebar-lock");
+		});
+	});
+
+	$menu_openers_custom.each(function () {
+		var $this = $(this);
+
+		$this.on("click", function (event) {
+			// Prevent default.
+			event.preventDefault();
+
+			$this.toggleClass("active").parent().toggleClass("active");
 
 			// Trigger resize (sidebar lock).
 			$window.triggerHandler("resize.sidebar-lock");

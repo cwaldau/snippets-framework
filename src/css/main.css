@@ -3156,3 +3156,47 @@ button:disabled,
 #searchlist .search {
   margin-bottom: 15px;
 }
+
+#menu ul.list .folder-name span {
+  font-style: italic;
+}
+
+#menu ul.list .folder-name span::before {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+#menu ul.list .folder-name ~ .subfolder-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#menu ul.list .folder-name.active ~ .subfolder-item {
+  display: none;
+}
+
+#menu ul.list .folder-name ~ .subfolder-item .folder {
+  display: none;
+}
+
+#menu ul.list .subfolder-item a {
+  display: flex;
+  gap: 5px;
+}
+
+#menu ul.list .folder-name ~ .subfolder-item::before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #9fa3a6;
+  content: "";
+  rotate: -90deg;
+}
