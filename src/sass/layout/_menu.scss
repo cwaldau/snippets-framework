@@ -104,14 +104,32 @@
 		}
 	}
 
-	ul.list .folder-name span:hover {
-		color: #3d4449;
-		cursor: default;
+	ul.list .folder-name span {
+		font-style: italic;
 	}
+
+	ul.list .folder-name span::before {
+		top: 50%;
+		translate: 0 -50%;
+	}
+
 	ul.list .folder-name ~ .subfolder-item {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+	}
+
+	ul.list .folder-name.active ~ .subfolder-item {
+		display: none;
+	}
+
+	ul.list .folder-name ~ .subfolder-item .folder {
+		display: none;
+	}
+
+	ul.list .subfolder-item a {
+		display: flex;
+		gap: 5px;
 	}
 
 	ul.list .folder-name ~ .subfolder-item::before {

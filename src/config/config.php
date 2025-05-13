@@ -96,3 +96,7 @@ foreach ($folders as $folder) {
     );
   }
 }
+
+function is_current_page($page) {
+  return strpos($_SERVER['REQUEST_URI'], $page) !== false;
+}

@@ -3166,6 +3166,10 @@ button:disabled,
   translate: 0 -50%;
 }
 
+#menu ul.list a.current {
+  color: #0080ff;
+}
+
 #menu ul.list .folder-name ~ .subfolder-item {
   display: flex;
   align-items: center;
