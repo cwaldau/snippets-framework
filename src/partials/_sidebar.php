@@ -7,11 +7,15 @@
       <header class="major">
         <h2>Table of Contents</h2>
       </header>
-      <ul>
-        <?php foreach ($snippets as $snippet): ?>
-        <li><a href="<?php echo SITE_PATH; ?><?php echo $snippet['slug']; ?>"><?php echo $snippet['name']; ?></a></li>
-        <?php endforeach; ?>
-      </ul>
+
+      <div id="searchlist">
+        <div class="search"><input class="search" placeholder="Search..." type="text" /></div>
+        <ul class="list">
+          <?php foreach ($snippets as $snippet): ?>
+          <li><a href="<?php echo SITE_PATH; ?><?php echo $snippet['slug']; ?>"><div class="name"><?php echo $snippet['name']; ?></div></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </nav>
 
     <!-- Footer -->

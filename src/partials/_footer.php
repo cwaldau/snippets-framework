@@ -19,6 +19,7 @@
     <script src="<?php echo SITE_ROOT; ?>js/jquery.min.js"></script>
     <script src="<?php echo SITE_ROOT; ?>js/browser.min.js"></script>
     <script src="<?php echo SITE_ROOT; ?>js/breakpoints.min.js"></script>
+    <script src="<?php echo SITE_ROOT; ?>js/list.min.js"></script>
     <script src="<?php echo SITE_ROOT; ?>js/util.js?v=<?php echo filemtime(ABS_SITE_ROOT . '/js/util.js'); ?>"></script>
     <script src="<?php echo SITE_ROOT; ?>js/main.js?v=<?php echo filemtime(ABS_SITE_ROOT . '/js/main.js'); ?>"></script>
 
