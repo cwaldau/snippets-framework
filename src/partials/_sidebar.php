@@ -9,7 +9,18 @@
       </header>
       <ul>
         <?php foreach ($snippets as $snippet): ?>
-        <li><a href="<?php echo SITE_PATH; ?><?php echo $snippet['slug']; ?>"><?php echo $snippet['name']; ?></a></li>
+
+          <?php if(isset($snippet['folder'])): ?>
+            <li><span class="opener"><?php echo $snippet['folder']; ?></span>
+              <ul>
+                <?php foreach ($snippet['children'] as $childSnippet): ?>
+                    <li><a href="<?php echo SITE_PATH; ?><?php echo $childSnippet['slug']; ?>"><?php echo $childSnippet['name']; ?></a></li>
+                <?php endforeach; ?>
+              </ul>
+            </li>
+            <?php else: ?>
+              <li><a href="<?php echo SITE_PATH; ?><?php echo $snippet['slug']; ?>"><?php echo $snippet['name']; ?></a></li>
+            <?php endif; ?>
         <?php endforeach; ?>
       </ul>
     </nav>

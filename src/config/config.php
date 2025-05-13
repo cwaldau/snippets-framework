@@ -58,15 +58,41 @@ define('PARTIALS_PATH', ABS_SITE_ROOT . '/partials/');
 // included here to ensure its available everywhere
 // get a list of all markdown files in the snippets folder
 $directory = ABS_SITE_ROOT . '/snippets/'; // needs trailing slash
-$files = glob($directory . '*.md'); // gets all markdown files
+$snippets = array();
 
-if ($files !== false && !empty($files)) {
-  $snippets = array();
-  foreach ($files as $file) {
-    // print_r($file);
-    $basename = basename($file);
-    $filename = str_replace('.md', '', $basename);
-    $slug = 'snip/' . $filename; // htaccess rules define the slug to be `snip`
-    $snippets[] = array('slug' => $slug, 'name' => $filename);
+// Handle top-level .md files first
+$topLevelFiles = glob($directory . '*.md');
+if ($topLevelFiles !== false && !empty($topLevelFiles)) {
+  foreach ($topLevelFiles as $file) {
+    $basename = basename($file, '.md');
+    $slug = 'snip/' . $basename;
+    $snippets[] = array(
+      'slug' => $slug,
+      'name' => $basename
+    );
+  }
+}
+
+// Now scan subdirectories
+$folders = glob($directory . '*', GLOB_ONLYDIR);
+foreach ($folders as $folder) {
+  $folderName = basename($folder);
+  $folderSnippets = array();
+
+  $mdFiles = glob($folder . '/*.md');
+  foreach ($mdFiles as $file) {
+    $basename = basename($file, '.md');
+    $slug = 'snip/' . $folderName . '/' . $basename;
+    $folderSnippets[] = array(
+      'slug' => $slug,
+      'name' => $basename
+    );
+  }
+
+  if (!empty($folderSnippets)) {
+    $snippets[] = array(
+      'folder' => $folderName,
+      'children' => $folderSnippets
+    );
   }
 }
